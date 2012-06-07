@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NMSI Demo</title>
+	<link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.1.0.css" />
+	<link rel="stylesheet" href="assets/css/jqm-docs.css" />
+	<script src="js/jquery.js"></script>
+	<script src="assets/js/jqm-docs.js"></script>
+	<script src="js/jquery.mobile-1.1.0.js"></script>
+	<script src="js/nmsi.js"></script>
+	<script type="text/javascript">
+	function writeDivPage(json){
+		$.each(json.data,function(i,item){
+	     $("body").append("<div data-role=\"page\" id=\"material_"+
+		                    item.Material.id+"\" data-theme=\"a\">"+
+		                     "<div data-role=\"header\">"+
+		                     "<h1>"+item.Material.name+"</h1>"+
+	                         "</div><div data-role=\"content\" data-theme=\"c\">"+	
+		                     "<h2>"+item.Material.name+"</h2>"+
+		                     "<p><strong>Chemistry Total: </strong>"+item.Material.chemistry_total+"</p>"+	
+		                     "<p><strong>Egei Total: </strong>"+item.Material.egei_total+"</p>"+	
+		                     "<p><strong>Water Land Intensity Total: </strong>"+item.Material.water_land_intensity_total+"</p>"+	
+		                     "<p><strong>Physical Waste Total: </strong>"+item.Material.physical_waste_total+"</p>"+
+		                     "<p><strong>Total Score: </strong>"+item.Material.total_score+"</p>"+
+		                     "<p><strong>Recyclable: </strong>"+item.Material.recyclable+"</p>"+	
+		                     "<p><strong>Organic: </strong>"+item.Material.organic+"</p>"+		                       	
+		                     "<p><a href=\"#one\" data-direction=\"reverse\" data-role=\"button\" data-theme=\"b\">Back to page Home</a></p>"+	
+                              "</div><div data-role=\"footer\"></div></div>");		                     
+		  $("#listOfMat").append("<li><a href=\"#material_"+item.Material.id+"\"+ data-role=\"button\">"+item.Material.name+"</a></li>");	
+		 });			           	 	  
+		 $("#listOfMat").listview("refresh");
+	};
+	</script>
+	
+</head>
+<body>
+<div data-role="page" id="one" data-theme="a">
+			<div data-role="header" data-theme="a">
+				<h1>List of Materials</h1>
+			</div>
+			<div data-role="content" data-theme="a">
+			<div data-role="content" data-theme="b"><strong>Welcome</strong> NMSI Prototype</div>
+			<ul id="listOfMat" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a">
+		    <script type="text/javascript">
+				jQuery.getJSON('http://nmsi.dailypath.com/materials/list/key:8e53d2fe59f28781d53332c279d173ffd8f6a952.json', function(json){
+				  writeDivPage(json);
+				});
+			</script>		
+			</ul>		
+	        </div>
+	<div data-role="footer" class="footer-docs" data-theme="c">
+			<p>&copy; 2011-12 The jQuery Foundation</p>
+	</div>
+</div>
+</body>
+</html>
