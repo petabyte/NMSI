@@ -11,7 +11,6 @@
 	<script src="js/jquery.mobile-1.1.0.js"></script>
 	<script src="js/materials_sustainability_index_client.js"></script>
 	<script src="js/nmsi.js"></script>
-	
 </head>
 <body>
 <div data-role="page" id="one" data-theme="a">
@@ -22,14 +21,14 @@
 			<div data-role="content" data-theme="b">
 			<strong>Welcome</strong> NMSI Prototype
 			</div>
-			<form action="./search_result.html" method="get" > 
 			 <div data-role="content" data-theme="a">
+			 <form action="./search_result.html" method="get" data-ajax="false">
 			 <label for="search-basic">Search Input:</label>
              <input type="search" name="searchMaterial" id="searchMaterial" value="" />
-             <p><input type="submit" data-role="button" data-theme="b" value="Search"></input></p>	
+             <p><input type="submit" data-role="submit" data-theme="b" value="Search"></input></p>
+             </form>
              </div>
-             </form>	
-	        </div> 
+	        </div>
 	<div data-role="footer" class="footer-docs" data-theme="c">
 			<p>&copy; 2011-12 NMSI</p>
 	</div>
