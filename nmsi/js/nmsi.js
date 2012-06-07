@@ -1,14 +1,14 @@
 var apiKey = "8e53d2fe59f28781d53332c279d173ffd8f6a952";
 var searchParameterName="searchMaterial";
 var sustainabilityClient = new MaterialsSustainabilityIndexClient( "http://nikemsiapi.nikebetterworld.com", apiKey, ".json" );
-function writeDivPage(json){
+function writeDivPage(json){  
       if(json !="" && json != null && json != undefined){
-		$.each(json,function(i,item){
-	      $("body").append("<div data-role=\"page\" id=\"material_"+
+	      $.each(json,function(i,item){
+	        $("body").append("<div data-role=\"page\" id=\"material_"+
 		                     item.Material.id+"\" data-theme=\"a\">"+
 		                     "<div data-role=\"header\">"+
 		                     "<h1>"+item.Material.name+"</h1>"+
-	                         "</div><div data-role=\"content\" data-theme=\"c\">"+	
+	                             "</div><div data-role=\"content\" data-theme=\"c\">"+	
 		                     "<h2>"+item.Material.name+"</h2>"+
 		                     "<p><strong>Chemistry Total: </strong>"+item.Material.chemistry_total+"</p>"+	
 		                     "<p><strong>Egei Total: </strong>"+item.Material.egei_total+"</p>"+	
@@ -17,15 +17,15 @@ function writeDivPage(json){
 		                     "<p><strong>Total Score: </strong>"+item.Material.total_score+"</p>"+
 		                     "<p><strong>Recyclable: </strong>"+item.Material.recyclable+"</p>"+	
 		                     "<p><strong>Organic: </strong>"+item.Material.organic+"</p>"+		                       	
-		                     "<p><a href=\"#one\" data-direction=\"reverse\" data-role=\"button\" data-theme=\"b\">Back to Search Result</a></p>"+	
+		                     "<p><a href=\"#two\" data-direction=\"reverse\" data-role=\"button\" data-theme=\"b\">Back to Search Result</a></p>"+	
 		                     "<p><a href=\"./search.html\" data-direction=\"reverse\" data-role=\"button\" data-theme=\"b\">Back to Search</a></p>"+	
                               "</div><div data-role=\"footer\"></div></div>");		                     
-		  $("#listOfMat").append("<li><a href=\"#material_"+item.Material.id+"\"+ data-role=\"button\">"+item.Material.name+"</a></li>");	
+		   $("#listOfMat").append("<li><a href=\"#material_"+item.Material.id+"\"+ data-role=\"button\">"+item.Material.name+"</a></li>");	
 		  });
-		 }else{
+	}else{
 		   $("#listOfMat").append("<li><div data-role=\"content\" data-theme=\"c\"><p><h2>Material Not Found!</h2></p></div></li>");
-		 };  
-		 $("#listOfMat").listview("refresh");
+	};  
+	 $("#listOfMat").listview("refresh");
 }
 
 function getURLParam(strParamName){
