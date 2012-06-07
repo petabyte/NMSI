@@ -11,27 +11,25 @@
 	<script src="js/jquery.mobile-1.1.0.js"></script>
 	<script src="js/materials_sustainability_index_client.js"></script>
 	<script src="js/nmsi.js"></script>
-	<script>
-	  var searchMaterial = null;
-	  $(window).load(function(){
-	    searchMaterial = getURLParam(searchParameterName);
-	    sustainabilityClient.searchMaterialsList( [searchMaterial], function( json ) {
-				 writeDivPage(json);
-			    });
-	  });
-	</script>
-	
+ 	<script>
+ 	$(window).load(function(){
+ 	   var searchMaterial = null;
+  	   searchMaterial = getURLParam(searchParameterName);
+   	   sustainabilityClient.searchMaterialsList([searchMaterial], function( json ) {
+	   			  		 		  writeDivPage(json);
+  	   });
+  	   });
+    </script>
 </head>
 <body>
-<div data-role="page" id="one" data-theme="a">
+<div data-role="page" id="two" data-theme="a">
 			<div data-role="header" data-theme="a">
 				<h1>List of Materials</h1>
 			</div>
 			<div data-role="content" data-theme="a">
-			  <div data-role="content" data-theme="b"><strong>Welcome</strong> NMSI Prototype</div>
-			  <ul id="listOfMat" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a">	
-			  </ul>		
-			
+			  <div id="contentMat" data-role="content" data-theme="b"><strong>Welcome</strong> NMSI Prototype</div>
+			  <ul id="listOfMat" data-role="listview" data-inset="true" data-theme="c" data-dividertheme="a">
+			  </ul>
 	        </div>
 	<div data-role="footer" class="footer-docs" data-theme="c">
 			<p>&copy; 2011-12 NMSI</p>
